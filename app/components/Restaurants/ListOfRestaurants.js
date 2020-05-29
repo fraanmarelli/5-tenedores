@@ -6,15 +6,14 @@ import { Directions } from 'react-native-gesture-handler';
 
 export default function ListOfRestaurants(props) {
   const { restaurants } = props;
-  const {images} = restaurants.item;
-  const imageRestaurant = images[0];
+
 
   return (
     <View>
       {size(restaurants) > 0 ? (
         <FlatList
             data= {restaurants}
-            renderItem={(restaurant) => <Restaurant restaurant={restaurant} />}
+            renderItem={() => <Text>HOLA</Text>}
             keyExtractor= {(item, index) => index.toString()}
         />
       ) : (
@@ -40,15 +39,7 @@ function DeployRestaurantList(props) {
         <TouchableOpacity>
             <View style={styles.viewRestaurant}>
                 <View style={styles.viewRestaurantImage}>
-                <Image 
-                        resizeMode='cover'
-                        PlaceholderContent= {<ActivityIndicator color="fff"/>}
-                        source = {
-                            imageRestaurant 
-                            ? { uri: imageRestaurant }
-                            : require("../../../assets/img/no-photo.png")
-                        }
-                    />
+                
                 </View>
             </View>
         </TouchableOpacity>
